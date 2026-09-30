@@ -1,0 +1,51 @@
+#include<stdio.h>
+int main()
+{
+    int type, hours, fee;
+    char mem_status;
+    printf("1=bike \n2=car \n3=truck");
+    printf("\nEnter the vehicle type: ");
+    scanf("%d", &type);
+    printf("Enter hours parked: ");
+    scanf("%d", &hours);
+    printf("Enter membership status (Y/N): ");
+    scanf(" %c", &mem_status);
+    if(type==1)
+    {
+        fee=20*(hours);
+    }
+    else if(type==2)
+    {
+        if(hours<=2)
+        {
+            fee=50;
+        }
+    else
+    {
+    fee=50+30*(hours-2);
+    }
+    }
+    else if(type==3)
+    {
+        if(hours<=3)
+        {
+            fee=100;
+        }
+    else
+    {
+        fee=100+50*(hours-3);
+    }
+    }
+    else
+    {
+    printf("Invalid vehicle type");
+    return 0;
+    }
+    if(hours<=0)
+    printf("Invalid duration");
+    if(mem_status=='Y' && fee>200)
+    {
+    fee=fee-(0.15*fee);
+    }
+    printf("%d", fee);
+}
